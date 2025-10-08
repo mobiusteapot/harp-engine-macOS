@@ -42,7 +42,7 @@ internal class ClippedRenderer : WindowRenderer
 			gameRectangle.X = 0;
 			gameRectangle.Y = (gameHeight - clippedGameHeight) / 2f;
 			gameRectangle.Width = gameWidth;
-			gameRectangle.Height = clippedGameHeight;
+			gameRectangle.Height = -clippedGameHeight;
 		}
 		else if (widerGame)
 		{
@@ -51,7 +51,7 @@ internal class ClippedRenderer : WindowRenderer
 			gameRectangle.X = (gameWidth - clippedGameWidth) / 2f;
 			gameRectangle.Y = 0;
 			gameRectangle.Width = clippedGameWidth;
-			gameRectangle.Height = gameHeight;
+			gameRectangle.Height = -gameHeight;
 		}
 		else
 		{
