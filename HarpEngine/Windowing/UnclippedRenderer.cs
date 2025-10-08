@@ -38,11 +38,33 @@ internal class UnclippedRenderer : WindowRenderer
 	private void CalculateDimensions()
 	{
 		viewportRectangle = new();
-		int minimumDimension = Math.Min(windowWidth, windowHeight);
-		viewportRectangle.X = (windowWidth - minimumDimension) / 2f;
-		viewportRectangle.Y = (windowHeight - minimumDimension) / 2f;
-		viewportRectangle.Width = minimumDimension;
-		viewportRectangle.Height = minimumDimension;
+
+		float gameAspect = (float)gameWidth / gameHeight;
+		float windowAspect = (float)windowWidth / windowHeight;
+
+		if (windowAspect > gameAspect)
+		{
+			float viewportWidth = windowHeight * gameAspect;
+			viewportRectangle.X = (windowWidth - viewportWidth) / 2f;
+			viewportRectangle.Y = 0;
+			viewportRectangle.Width = viewportWidth;
+			viewportRectangle.Height = windowHeight;
+		}
+		else if (windowAspect < gameAspect)
+		{
+			float viewportHeight = windowWidth / gameAspect;
+			viewportRectangle.X = 0;
+			viewportRectangle.Y = (windowHeight - viewportHeight) / 2f;
+			viewportRectangle.Width = windowWidth;
+			viewportRectangle.Height = viewportHeight;
+		}
+		else
+		{
+			viewportRectangle.X = 0;
+			viewportRectangle.Y = 0;
+			viewportRectangle.Width = windowWidth;
+			viewportRectangle.Height = windowHeight;
+		}
 	}
 
 	private void CalculateMouse()
