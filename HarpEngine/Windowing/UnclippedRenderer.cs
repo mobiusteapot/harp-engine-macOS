@@ -24,7 +24,7 @@ internal class UnclippedRenderer : WindowRenderer
 		gameRectangle = new(0, 0, gameWidth, -gameHeight);
 
 		// Only calculate viewport rectangle if window has been resized
-		if (DidResize) CalculateViewportRectangle(windowWidth, windowHeight);
+		if (DidResize) CalculateDimensions();
 		CalculateMouse();
 	}
 
@@ -35,7 +35,7 @@ internal class UnclippedRenderer : WindowRenderer
 		gameRenderTexture.Texture.Draw(gameRectangle, viewportRectangle, Vector2.Zero, 0, Colors.White);
 	}
 
-	private void CalculateViewportRectangle(int windowWidth, int windowHeight)
+	private void CalculateDimensions()
 	{
 		viewportRectangle = new();
 		int minimumDimension = Math.Min(windowWidth, windowHeight);

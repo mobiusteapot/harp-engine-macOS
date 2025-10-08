@@ -18,7 +18,7 @@ internal class ClippedRenderer : WindowRenderer
 		viewportRectangle = new(0, 0, windowWidth, windowHeight);
 
 		// Only calculate game rectangle if window has been resized
-		if (DidResize) CalculateGameRectangle(windowWidth, windowHeight, gameWidth, gameHeight);
+		if (DidResize) CalculateDimensions();
 		CalculateMouse();
 	}
 
@@ -28,7 +28,7 @@ internal class ClippedRenderer : WindowRenderer
 		gameRenderTexture.Texture.Draw(gameRectangle, viewportRectangle, Vector2.Zero, 0, Colors.White);
 	}
 
-	private void CalculateGameRectangle(int windowWidth, int windowHeight, int gameWidth, int gameHeight)
+	private void CalculateDimensions()
 	{
 		float windowAspect = (float)windowWidth / windowHeight;
 		if (windowWidth > windowHeight)
