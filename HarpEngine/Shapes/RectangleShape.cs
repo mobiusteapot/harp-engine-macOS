@@ -21,6 +21,7 @@ public class RectangleShape : Entity
 		Primitives.DrawRectangle(Rectangle, Origin, Transform.WorldRotation, Color);
 	}
 
-	public bool CollidesWith(Rectangle rectangle) => Collision.RectangleOnRectangle(Rectangle, rectangle);
-	public bool CollidesWith(RectangleShape rectangleShape) => Collision.RectangleOnRectangle(Rectangle, rectangleShape.Rectangle);
+	public bool CollidesWithPoint(Vector2 position) => Collision.PointInRectangle(position, Rectangle);
+	public bool CollidesWithRectangle(Rectangle rectangle) => Collision.RectangleOnRectangle(Rectangle, rectangle);
+	public bool CollidesWithRectangle(RectangleShape rectangleShape) => Collision.RectangleOnRectangle(Rectangle, rectangleShape.Rectangle);
 }
