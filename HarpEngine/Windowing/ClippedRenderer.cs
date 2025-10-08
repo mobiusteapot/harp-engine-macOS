@@ -55,7 +55,7 @@ internal class ClippedRenderer : WindowRenderer
 		}
 		else
 		{
-			gameRectangle = new(0, 0, gameWidth, gameHeight);
+			gameRectangle = new(0, 0, gameWidth, -gameHeight);
 		}
 	}
 
