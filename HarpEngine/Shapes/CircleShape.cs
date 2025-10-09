@@ -1,6 +1,6 @@
 ﻿namespace HarpEngine.Shapes;
 
-public class CircleShape : Entity
+public class CircleShape : Entity, ICollidesWithCircle
 {
 	public Transform2D Transform = new();
 	public float Radius;

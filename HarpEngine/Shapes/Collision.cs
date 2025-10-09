@@ -1,4 +1,4 @@
-﻿namespace HarpEngine.Utilities;
+﻿namespace HarpEngine.Shapes;
 
 public static class Collision
 {

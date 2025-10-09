@@ -1,6 +1,6 @@
 ﻿namespace HarpEngine.Shapes;
 
-public class RectangleShape : Entity
+public class RectangleShape : Entity, ICollidesWithRectangle
 {
 	public Transform2D Transform = new();
 	public Vector2 Origin = Vector2.Zero;
