@@ -2,58 +2,22 @@
 
 public static class Generate
 {
-	private static Random random = new();
+	private static Seed seed = new();
 	public static int Seed
 	{
-		set => random = new(value);
+		set => seed = new(value);
 	}
 
-	public static double Double()
-	{
-		return random.NextDouble();
-	}
-
-	public static long Long()
-	{
-		return random.NextInt64();
-	}
-
-	public static float Float()
-	{
-		return random.NextSingle();
-	}
-
-	public static float Float(float max)
-	{
-		return Float() * max;
-	}
-
-	public static float Float(float min, float max)
-	{
-		return min + Float() * (max - min);
-	}
-
-	public static bool Bool()
-	{
-		return random.NextDouble() > 0.5;
-	}
-
-	public static float Radians()
-	{
-		return Float() * MathF.Tau;
-	}
-
-	public static float Degrees()
-	{
-		return Float() * 360f;
-	}
-
-	public static Vector2 Vector2()
-	{
-		float radians = Radians();
-		float x = MathF.Cos(radians);
-		float y = MathF.Sin(radians);
-		Vector2 randomVector = new Vector2(x, y);
-		return System.Numerics.Vector2.Normalize(randomVector);
-	}
+	public static int Integer() => seed.NextInteger();
+	public static int Integer(int max) => seed.NextInteger(max);
+	public static int Integer(int min, int max) => seed.NextInteger(min, max);
+	public static float Float() => seed.NextFloat();
+	public static float Float(float max) => seed.NextFloat(max);
+	public static float Float(float min, float max) => seed.NextFloat(min, max);
+	public static double Double() => seed.NextDouble();
+	public static long Long() => seed.NextLong();
+	public static bool Bool() => seed.NextBool();
+	public static float Radians() => seed.NextRadians();
+	public static float Degrees() => seed.NextDegrees();
+	public static Vector2 Vector2() => seed.NextVector2();
 }
