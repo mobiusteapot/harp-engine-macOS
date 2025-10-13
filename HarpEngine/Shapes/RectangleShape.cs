@@ -1,12 +1,13 @@
 ﻿namespace HarpEngine.Shapes;
 
-public class RectangleShape : Entity
+public class RectangleShape : Entity, ICollidesWithRectangle
 {
 	public Transform2D Transform = new();
 	public Vector2 Origin = Vector2.Zero;
 	public int Width;
 	public int Height;
 	public Color Color;
+	public Rectangle Rectangle => new(Transform.WorldPosition, Width, Height);
 
 	public RectangleShape(Scene scene, int width, int height, Color color) : base(scene)
 	{
@@ -17,7 +18,10 @@ public class RectangleShape : Entity
 
 	public override void Draw()
 	{
-		Rectangle rectangle = new(Transform.WorldPosition, Width, Height);
-		Primitives.DrawRectangle(rectangle, Origin, Transform.WorldRotation, Color);
+		Primitives.DrawRectangle(Rectangle, Origin, Transform.WorldRotation, Color);
 	}
+
+	public bool CollidesWithPoint(Vector2 position) => Collision.PointInRectangle(position, Rectangle);
+	public bool CollidesWithRectangle(Rectangle rectangle) => Collision.RectangleOnRectangle(Rectangle, rectangle);
+	public bool CollidesWithRectangle(RectangleShape rectangleShape) => Collision.RectangleOnRectangle(Rectangle, rectangleShape.Rectangle);
 }
