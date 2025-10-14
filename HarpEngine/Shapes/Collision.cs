@@ -69,4 +69,13 @@ public static class Collision
 		// Check for collision
 		return distance <= circleRadius;
 	}
+
+	public static bool PointOnLine(Vector2 pointPosition, Vector2 lineStartPosition, Vector2 lineEndPosition, float tolerance)
+	{
+		float lineLength = Vector2.Distance(lineStartPosition, lineEndPosition);
+		float distanceToStart = Vector2.Distance(pointPosition, lineStartPosition);
+		float distanceToEnd = Vector2.Distance(pointPosition, lineEndPosition);
+		float distanceToBoth = distanceToStart + distanceToEnd;
+		return distanceToBoth <= lineLength + tolerance;
+	}
 }
