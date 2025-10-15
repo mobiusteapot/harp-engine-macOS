@@ -2,16 +2,34 @@
 
 public static class Collision
 {
+	public static bool PointInCircle(Vector2 pointPosition, Vector2 circlePosition, float radius)
+	{
+		float distance = Vector2.Distance(pointPosition, circlePosition);
+		return distance < radius;
+	}
+
 	public static bool PointInCircleSquared(Vector2 pointPosition, Vector2 circlePosition, float radiusSquared)
 	{
 		float distanceSquared = Vector2.DistanceSquared(pointPosition, circlePosition);
 		return distanceSquared < radiusSquared;
 	}
 
+	public static bool CircleOnCircle(Vector2 positionA, float radiusA, Vector2 positionB, float radiusB)
+	{
+		float distance = Vector2.Distance(positionA, positionB);
+		return distance < radiusA + radiusB;
+	}
+
 	public static bool CircleOnCircleSquared(Vector2 positionA, float radiusSquaredA, Vector2 positionB, float radiusSquaredB)
 	{
 		float distanceSquared = Vector2.DistanceSquared(positionA, positionB);
 		return distanceSquared < radiusSquaredA + radiusSquaredB;
+	}
+
+	public static bool CircleInCircle(Vector2 positionA, float radiusA, Vector2 positionB, float radiusB)
+	{
+		float distance = Vector2.Distance(positionA, positionB);
+		return distance < radiusB - radiusA;
 	}
 
 	public static bool CircleInCircleSquared(Vector2 positionA, float radiusSquaredA, Vector2 positionB, float radiusSquaredB)
