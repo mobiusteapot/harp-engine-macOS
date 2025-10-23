@@ -1,6 +1,6 @@
 ﻿namespace HarpEngine.Shapes;
 
-public class PointShape : Entity, IIntersectWithCircle, IIntersectWithRectangle
+public class PointShape : Entity, IIntersectsWithCircle, IIntersectsWithRectangle
 {
 	public Vector2 Position;
 	public Color Color;
@@ -10,10 +10,10 @@ public class PointShape : Entity, IIntersectWithCircle, IIntersectWithRectangle
 		Color = color;
 	}
 
-	public bool CollidesWithCircle(Vector2 circlePosition, float circleRadius) => Intersection.PointInCircle(Position, circlePosition, circleRadius);
-	public bool CollidesWithCircle(CircleShape circleShape) => Intersection.PointInCircle(Position, circleShape.Transform.WorldPosition, circleShape.Radius);
-	public bool CollidesWithRectangle(Rectangle rectangle) => Intersection.PointInRectangle(Position, rectangle);
-	public bool CollidesWithRectangle(RectangleShape rectangleShape) => Intersection.PointInRectangle(Position, rectangleShape.Rectangle);
+	public bool IntersectsWithCircle(Vector2 circlePosition, float circleRadius) => Intersection.PointInCircle(Position, circlePosition, circleRadius);
+	public bool IntersectsWithCircle(CircleShape circleShape) => Intersection.PointInCircle(Position, circleShape.Transform.WorldPosition, circleShape.Radius);
+	public bool IntersectsWithRectangle(Rectangle rectangle) => Intersection.PointInRectangle(Position, rectangle);
+	public bool IntersectsWithRectangle(RectangleShape rectangleShape) => Intersection.PointInRectangle(Position, rectangleShape.Rectangle);
 
 	public override void Draw()
 	{
