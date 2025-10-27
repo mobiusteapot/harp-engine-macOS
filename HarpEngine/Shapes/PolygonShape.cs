@@ -1,9 +1,9 @@
 ﻿namespace HarpEngine.Shapes;
 
-public class PolygonShape : Entity
+public class PolygonShape : Entity, ITransform2D
 {
 	// General
-	public Transform2D Transform = new();
+	public Transform2D Transform { get; set; } = new();
 	public int SideCount;
 	public float Radius;
 	public Color Color;
