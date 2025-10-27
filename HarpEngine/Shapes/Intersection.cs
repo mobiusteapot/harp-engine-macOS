@@ -105,21 +105,23 @@ public static class Intersection
 		return distanceToBoth <= lineLength + tolerance;
 	}
 
+	// https://stackoverflow.com/a/1079478/13591389
 	public static bool CircleOnLine(Vector2 circlePosition, float radius, Vector2 lineStartPosition, Vector2 lineEndPosition)
 	{
-		Vector2 lineStartToCircle = circlePosition - lineStartPosition;
-		Vector2 lineStartToEnd = lineEndPosition - lineStartPosition;
-		Vector2 projectedCircle = lineStartPosition + lineStartToCircle.Project(lineStartToEnd);
+		Vector2 lineStartToCircle = circlePosition - lineStartPosition; // AC
+		Vector2 lineStartToEnd = lineEndPosition - lineStartPosition; // AB
+		Vector2 projectedPosition = lineStartPosition + lineStartToCircle.Project(lineStartToEnd); // D
 
-		float distanceToLine = Vector2.Distance(circlePosition, projectedCircle);
+		float distanceToLine = Vector2.Distance(circlePosition, projectedPosition); // CD
 		if (distanceToLine > radius) return false;
 
-		float distanceToStart = Vector2.Distance(projectedCircle, lineStartPosition);
-		float distanceToEnd = Vector2.Distance(projectedCircle, lineEndPosition);
-		float distanceToBoth = distanceToStart + distanceToEnd;
-		return distanceToBoth < lineStartToEnd.Length() + radius;
+		float distanceToStart = Vector2.Distance(circlePosition, lineStartPosition);
+		float distanceToEnd = Vector2.Distance(circlePosition, lineEndPosition);
+		float distanceToBoth = distanceToStart + distanceToEnd - radius * 2;
+		return distanceToBoth < lineStartToEnd.Length();
 	}
 
+	// https://paulbourke.net/geometry/pointlineplane/
 	public static bool LineOnLine(Vector2 startPositionA, Vector2 endPositionA, Vector2 startPositionB, Vector2 endPositionB)
 	{
 		// Get differences
