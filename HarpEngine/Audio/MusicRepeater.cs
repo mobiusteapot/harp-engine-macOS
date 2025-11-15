@@ -6,7 +6,7 @@ public class MusicRepeater : Entity
 	private bool isStarted;
 	private bool isPaused;
 
-	public MusicRepeater(Scene scene, Music music) : base(scene)
+	public MusicRepeater(Music music)
 	{
 		this.music = music;
 	}

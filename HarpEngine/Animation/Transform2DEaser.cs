@@ -16,7 +16,7 @@ public class Transform2DEaser : Easer
 	public float TargetWorldRotation;
 	public float TargetLocalRotation;
 
-	public Transform2DEaser(Scene scene, Transform2D transform, float easeSeconds) : base(scene, easeSeconds)
+	public Transform2DEaser(Transform2D transform, float easeSeconds) : base(easeSeconds)
 	{
 		this.transform = transform;
 		SerializeTransform();

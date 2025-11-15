@@ -5,7 +5,7 @@ public class PointShape : Entity, IIntersectsWithCircle, IIntersectsWithRectangl
 	public Transform2D Transform { get; set; } = new();
 	public Color Color;
 
-	public PointShape(Scene scene, Color color) : base(scene)
+	public PointShape(Color color)
 	{
 		Color = color;
 	}

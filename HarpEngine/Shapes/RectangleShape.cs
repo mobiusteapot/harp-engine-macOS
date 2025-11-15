@@ -9,7 +9,7 @@ public class RectangleShape : Entity, ITransform2D, IIntersectsWithPoint, IInter
 	public Color Color;
 	public Rectangle Rectangle => new(Transform.WorldPosition, Width, Height);
 
-	public RectangleShape(Scene scene, int width, int height, Color color) : base(scene)
+	public RectangleShape(int width, int height, Color color)
 	{
 		Width = width;
 		Height = height;

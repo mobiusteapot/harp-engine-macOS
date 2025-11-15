@@ -7,7 +7,7 @@ public class LineShape : Entity, IIntersectsWithPoint, IIntersectsWithCircle, II
 	public float Thickness;
 	public Color Color;
 
-	public LineShape(Scene scene, float thickness, Color color) : base(scene)
+	public LineShape(float thickness, Color color)
 	{
 		Thickness = thickness;
 		Color = color;

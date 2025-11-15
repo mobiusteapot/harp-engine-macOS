@@ -8,7 +8,7 @@ public class PolygonShape : Entity, ITransform2D
 	public float Radius;
 	public Color Color;
 
-	public PolygonShape(Scene scene, float radius, int sideCount, Color color) : base(scene)
+	public PolygonShape(float radius, int sideCount, Color color)
 	{
 		Radius = radius;
 		SideCount = sideCount;

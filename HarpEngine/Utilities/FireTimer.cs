@@ -8,7 +8,7 @@ public class FireTimer : Entity
 	public delegate void FiredDelegate();
 	public event FiredDelegate Fired;
 
-	public FireTimer(Scene scene, float cooldownTime) : base(scene)
+	public FireTimer(float cooldownTime)
 	{
 		CooldownTime = cooldownTime;
 		backloggedTime = cooldownTime;

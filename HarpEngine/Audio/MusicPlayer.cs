@@ -11,7 +11,7 @@ public class MusicPlayer : Entity
 	public bool RemoveOnFinished = true;
 	private bool isPaused;
 
-	public MusicPlayer(Scene scene, Music music) : base(scene)
+	public MusicPlayer(Music music)
 	{
 		this.music = music;
 		musicDuration = music.Duration;

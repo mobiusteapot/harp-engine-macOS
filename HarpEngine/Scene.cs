@@ -65,4 +65,11 @@ public class Scene
 			if (entity.IsRendering) entity.DrawGUI();
 		}
 	}
+
+	public void Add(Entity entity)
+	{
+		entity.Scene = this;
+		Entities.Add(entity);
+		entity.OnAddedToScene();
+	}
 }

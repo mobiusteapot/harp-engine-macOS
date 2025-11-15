@@ -33,14 +33,19 @@ public sealed class ParticleEngine2D : Entity
 	public delegate void StreamFiredDelegate(out Particle2D particleTemplate);
 	public event StreamFiredDelegate StreamFired;
 
-	public ParticleEngine2D(Scene scene, int initialCount = defaultInitialCount, float streamCooldownTime = defaultStreamCooldownTime) : base(scene)
+	public ParticleEngine2D(int initialCount = defaultInitialCount, float streamCooldownTime = defaultStreamCooldownTime)
 	{
 		particles = new Particle2D[initialCount];
 		Particles = particles.AsReadOnly();
-		fireTimer = new(scene, streamCooldownTime);
-		fireTimer.Fired += SpawnStream;
-		fireTimer.Start();
+		fireTimer = new(streamCooldownTime);
 		fireTimer.IsUpdating = false;
+		fireTimer.Fired += SpawnStream;
+	}
+
+	public override void OnAddedToScene()
+	{
+		Scene.Add(fireTimer);
+		fireTimer.Start();
 	}
 
 	public override void Update()
@@ -60,7 +65,7 @@ public sealed class ParticleEngine2D : Entity
 			particle.timeToDeath -= Engine.FrameTime;
 
 			// Apply modifiers
-			foreach (Particle2DModifier modifier in modifiers) modifier(ref particle, scene.Time, Engine.FrameTime);
+			foreach (Particle2DModifier modifier in modifiers) modifier(ref particle, Scene.Time, Engine.FrameTime);
 		}
 	}
 
@@ -139,7 +144,7 @@ public sealed class ParticleEngine2D : Entity
 		particles[count] = default;
 	}
 
-	public override void OnRemove()
+	public override void OnRemovedFromScene()
 	{
 		fireTimer.Remove();
 	}

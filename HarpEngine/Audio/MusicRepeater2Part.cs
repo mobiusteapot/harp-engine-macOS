@@ -13,7 +13,7 @@ public class MusicRepeater2Part : Entity
 	private bool isPaused;
 	private bool playingInitial;
 
-	public MusicRepeater2Part(Scene scene, Music initialMusic, Music repeatedMusic) : base(scene)
+	public MusicRepeater2Part(Music initialMusic, Music repeatedMusic)
 	{
 		this.initialMusic = initialMusic;
 		initialMusicDuration = initialMusic.Duration;

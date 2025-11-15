@@ -6,7 +6,7 @@ public class CircleShape : Entity, ITransform2D, IIntersectsWithPoint, IIntersec
 	public float Radius;
 	public Color Color;
 
-	public CircleShape(Scene scene, float radius, Color color) : base(scene)
+	public CircleShape(float radius, Color color)
 	{
 		Radius = radius;
 		Color = color;

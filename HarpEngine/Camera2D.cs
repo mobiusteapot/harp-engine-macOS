@@ -15,7 +15,7 @@ public class Camera2D : Camera
 	public float MouseWorldX => Mouse.GameX - Engine.HalfGameWidth + Transform.WorldPosition.X;
 	public float MouseWorldY => Mouse.GameY - Engine.HalfGameHeight + Transform.WorldPosition.Y;
 
-	public Camera2D(Scene scene) : base(scene)
+	public Camera2D()
 	{
 		Vector2 centeredOffset = new(Engine.HalfGameWidth, Engine.HalfGameHeight);
 		raylibCamera = new(centeredOffset, Vector2.Zero, 0, 1);
