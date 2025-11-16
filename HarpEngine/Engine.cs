@@ -5,6 +5,7 @@ global using HarpEngine.Windowing;
 global using HarpEngine.Audio;
 global using HarpEngine.Input;
 global using HarpEngine.Shapes;
+global using HarpEngine.Tiles;
 global using System.Numerics;
 global using System.Runtime.InteropServices;
 

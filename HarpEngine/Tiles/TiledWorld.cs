@@ -1,8 +1,4 @@
-﻿using HarpEngine;
-using HarpEngine.Tiles;
-using HarpEngine.Utilities;
-
-namespace Tiles;
+﻿namespace HarpEngine.Tiles;
 
 public class TiledWorld : Entity
 {
