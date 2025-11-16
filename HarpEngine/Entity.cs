@@ -31,9 +31,9 @@ public abstract class Entity
 		}
 	}
 
-	public virtual void Update() { }
-	public virtual void Draw() { }
-	public virtual void DrawGUI() { }
+	public virtual void OnUpdate() { }
+	public virtual void OnDraw() { }
+	public virtual void OnDrawGUI() { }
 
 	public void Remove()
 	{

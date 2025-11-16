@@ -16,7 +16,7 @@ public class RectangleShape : Entity, ITransform2D, IIntersectsWithPoint, IInter
 		Color = color;
 	}
 
-	public override void Draw()
+	public override void OnDraw()
 	{
 		Primitives.DrawRectangle(Rectangle, Origin, Transform.WorldRotation, Color);
 	}

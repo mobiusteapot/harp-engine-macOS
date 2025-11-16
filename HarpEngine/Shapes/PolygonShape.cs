@@ -15,7 +15,7 @@ public class PolygonShape : Entity, ITransform2D
 		Color = color;
 	}
 
-	public override void Draw()
+	public override void OnDraw()
 	{
 		Primitives.DrawPolygon(Transform.WorldPosition, SideCount, Radius, Transform.WorldRotation, Color);
 	}

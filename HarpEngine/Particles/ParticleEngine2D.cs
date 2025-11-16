@@ -44,11 +44,11 @@ public sealed class ParticleEngine2D : Entity
 
 	public override void OnAddedToScene()
 	{
-		Scene.Add(fireTimer);
+		Scene.AddEntity(fireTimer);
 		fireTimer.Start();
 	}
 
-	public override void Update()
+	public override void OnUpdate()
 	{
 		for (int particleIndex = count - 1; particleIndex >= 0; particleIndex--)
 		{
@@ -69,7 +69,7 @@ public sealed class ParticleEngine2D : Entity
 		}
 	}
 
-	public override void Draw()
+	public override void OnDraw()
 	{
 		for (int particleIndex = 0; particleIndex < count; particleIndex++)
 		{

@@ -13,7 +13,7 @@ public class LineShape : Entity, IIntersectsWithPoint, IIntersectsWithCircle, II
 		Color = color;
 	}
 
-	public override void Draw()
+	public override void OnDraw()
 	{
 		Primitives.DrawLine(StartPosition, EndPosition, Thickness, Color);
 	}

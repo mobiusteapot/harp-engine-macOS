@@ -4,7 +4,7 @@ using HarpEngine.Utilities;
 
 namespace Tiles;
 
-public class TiledWorld
+public class TiledWorld : Entity
 {
 	private IEnumerable<TiledArea> areas;
 	private Dictionary<Coordinate, TiledArea> areasByTile = new();
@@ -27,7 +27,7 @@ public class TiledWorld
 		}
 	}
 
-	public void Draw()
+	public override void OnDraw()
 	{
 		foreach (TiledArea area in areas)
 		{

@@ -11,7 +11,7 @@ public class MusicRepeater : Entity
 		this.music = music;
 	}
 
-	public override void Update()
+	public override void OnUpdate()
 	{
 		if (isStarted && !isPaused) music.Update();
 	}

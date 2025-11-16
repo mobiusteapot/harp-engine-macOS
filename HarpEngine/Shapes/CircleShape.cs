@@ -12,7 +12,7 @@ public class CircleShape : Entity, ITransform2D, IIntersectsWithPoint, IIntersec
 		Color = color;
 	}
 
-	public override void Draw()
+	public override void OnDraw()
 	{
 		Primitives.DrawCircle(Transform.WorldPosition, Radius, Color);
 	}

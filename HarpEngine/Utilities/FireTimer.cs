@@ -14,7 +14,7 @@ public class FireTimer : Entity
 		backloggedTime = cooldownTime;
 	}
 
-	public override void Update()
+	public override void OnUpdate()
 	{
 		if (!isStarted) return;
 
@@ -25,7 +25,7 @@ public class FireTimer : Entity
 		for (int actionNumber = 1; actionNumber <= backloggedActions; actionNumber++) Fire();
 	}
 
-	public override void Draw() { }
+	public override void OnDraw() { }
 
 	public void Start()
 	{

@@ -10,7 +10,7 @@ public class PointShape : Entity, IIntersectsWithCircle, IIntersectsWithRectangl
 		Color = color;
 	}
 
-	public override void Draw()
+	public override void OnDraw()
 	{
 		Primitives.DrawPixel(Transform.WorldPosition, Color);
 	}

@@ -17,7 +17,7 @@ public class MusicPlayer : Entity
 		musicDuration = music.Duration;
 	}
 
-	public override void Update()
+	public override void OnUpdate()
 	{
 		if (isStarted && !isPaused)
 		{

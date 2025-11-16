@@ -38,8 +38,7 @@ public class TiledArea
 
 	public void Draw()
 	{
-		// WTF is going on???
-		renderTexture.Texture.Draw(renderRectangle, Position + Vector2.UnitY * HeightInPixels, Colors.White);
+		renderTexture.Texture.Draw(renderRectangle, Position, Colors.White);
 	}
 
 	public TileType GetTileType<TileType>(int pixelX, int pixelY) where TileType : Enum

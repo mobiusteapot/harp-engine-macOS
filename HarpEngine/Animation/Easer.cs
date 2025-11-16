@@ -24,7 +24,7 @@ public class Easer : Entity
 		this.easeSeconds = easeSeconds;
 	}
 
-	public override void Update()
+	public override void OnUpdate()
 	{
 		if (!IsEasing) return;
 
@@ -32,7 +32,7 @@ public class Easer : Entity
 		else Finish();
 	}
 
-	public override void Draw() { }
+	public override void OnDraw() { }
 
 	private void Ease()
 	{

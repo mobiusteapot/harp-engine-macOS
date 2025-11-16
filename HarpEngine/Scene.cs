@@ -37,7 +37,7 @@ public class Scene
 	{
 		foreach (Entity entity in Entities.InUpdateOrder)
 		{
-			if (entity.IsUpdating) entity.Update();
+			if (entity.IsUpdating) entity.OnUpdate();
 		}
 	}
 
@@ -53,7 +53,7 @@ public class Scene
 		if (Camera is not null) Camera.Begin();
 		foreach (Entity entity in Entities.InDrawOrder)
 		{
-			if (entity.IsRendering) entity.Draw();
+			if (entity.IsRendering) entity.OnDraw();
 		}
 		if (Camera is not null) Camera.End();
 	}
@@ -62,14 +62,15 @@ public class Scene
 	{
 		foreach (Entity entity in Entities.InDrawOrder)
 		{
-			if (entity.IsRendering) entity.DrawGUI();
+			if (entity.IsRendering) entity.OnDrawGUI();
 		}
 	}
 
-	public void Add(Entity entity)
+	public EntitySubclass AddEntity<EntitySubclass>(EntitySubclass entity) where EntitySubclass : Entity
 	{
 		entity.Scene = this;
 		Entities.Add(entity);
 		entity.OnAddedToScene();
+		return entity;
 	}
 }

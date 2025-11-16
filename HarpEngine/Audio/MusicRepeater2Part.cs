@@ -20,7 +20,7 @@ public class MusicRepeater2Part : Entity
 		this.repeatedMusic = repeatedMusic;
 	}
 
-	public override void Update()
+	public override void OnUpdate()
 	{
 		if (isStarted && !isPaused)
 		{

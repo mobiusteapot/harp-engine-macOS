@@ -15,7 +15,7 @@ public class TriggerTimer : Entity
 		this.triggerSeconds = triggerSeconds;
 	}
 
-	public override void Update()
+	public override void OnUpdate()
 	{
 		if (isTriggered) return;
 
