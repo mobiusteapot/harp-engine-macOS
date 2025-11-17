@@ -15,29 +15,42 @@ public static class Engine
 {
 	// Input
 	private static Game game;
-	private static EngineSettings settings;
 
 	// General
 	private static RenderTexture gameRenderTexture;
 
-	// Interface
-	public static int GameWidth => settings.GameWidth;
-	public static int GameHeight => settings.GameHeight;
+	// Game size
+	public static Coordinate GameSize
+	{
+		get => new(GameWidth, GameHeight);
+		set
+		{
+			GameWidth = value.Y;
+			GameHeight = value.X;
+			HalfGameWidth = GameWidth / 2;
+			HalfGameHeight = GameHeight / 2;
+			if (gameRenderTexture.IsValid) gameRenderTexture.Dispose();
+			gameRenderTexture = RenderTexture.Load(GameWidth, GameHeight);
+		}
+	}
+	public static int GameWidth { get; private set; }
+	public static int GameHeight { get; private set; }
 	public static int HalfGameWidth { get; private set; }
 	public static int HalfGameHeight { get; private set; }
+
+	// Extra
 	public static float FrameTime {  get; private set; }
 
-	public static void Initialize(EngineSettings engineSettings)
+	public static void Initialize(string windowTitle, int gameWidth, int gameHeight)
 	{
 		// Initialize window
-		settings = engineSettings;
-		Window.Initialize(settings.WindowWidth, settings.WindowHeight, settings.WindowName);
+		Window.Initialize(800, 800, windowTitle);
 		HalfGameWidth = GameWidth / 2;
 		HalfGameHeight = GameHeight / 2;
 
 		// Initialize game
 		AudioDevice.Initialize();
-		gameRenderTexture = RenderTexture.Load(settings.GameWidth, settings.GameHeight);
+		GameSize = new(gameWidth, gameHeight);
 	}
 
 	public static void Start(Game game)
