@@ -25,8 +25,8 @@ public static class Engine
 		get => new(GameWidth, GameHeight);
 		set
 		{
-			GameWidth = value.Y;
-			GameHeight = value.X;
+			GameWidth = value.X;
+			GameHeight = value.Y;
 			HalfGameWidth = GameWidth / 2;
 			HalfGameHeight = GameHeight / 2;
 			if (gameRenderTexture.IsValid) gameRenderTexture.Dispose();
