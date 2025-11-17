@@ -76,7 +76,7 @@ public unsafe static class Window
 	public static extern void SetIcons(Image* images, int count);
 
 	[DllImport("raylib.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SetWindowTitle")]
-	public static extern void ChangeTitle(string title);
+	public static extern void SetTitle(string title);
 
 	[DllImport("raylib.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SetWindowPosition")]
 	public static extern void SetPosition(int x, int y);
