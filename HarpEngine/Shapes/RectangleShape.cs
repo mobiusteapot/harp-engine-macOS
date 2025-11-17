@@ -7,7 +7,7 @@ public class RectangleShape : Entity, ITransform2D, IIntersectsWithPoint, IInter
 	public int Width;
 	public int Height;
 	public Color Color;
-	public Rectangle Rectangle => new(Transform.WorldPosition, Width, Height);
+	public Rectangle Rectangle => new(Transform.WorldPosition - Origin, Width, Height);
 
 	public RectangleShape(int width, int height, Color color)
 	{
@@ -18,7 +18,7 @@ public class RectangleShape : Entity, ITransform2D, IIntersectsWithPoint, IInter
 
 	public override void OnDraw()
 	{
-		Primitives.DrawRectangle(Rectangle, Origin, Transform.WorldRotation, Color);
+		Primitives.DrawRectangle(Rectangle, Vector2.Zero, Transform.WorldRotation, Color);
 	}
 
 	public bool IntersectsWithPoint(Vector2 position) => Intersection.PointInRectangle(position, Rectangle);
