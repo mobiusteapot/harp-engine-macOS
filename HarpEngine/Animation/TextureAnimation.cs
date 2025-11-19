@@ -41,7 +41,7 @@ public class TextureAnimation
 			}
 	}
 
-	public void Draw(Vector2 position, Vector2 direction, float frameTime, Color color)
+	public void Draw(Vector2 position, Vector2 direction, Color color)
 	{
 		int cellIndex;
 		if (PlayOnce && currentTime >= PlayTime) cellIndex = cells.Length - 1;
@@ -52,7 +52,7 @@ public class TextureAnimation
 		cell.Height *= direction.Y;
 		texture.Draw(cell, position, color);
 
-		currentTime += frameTime;
+		currentTime += Engine.FrameTime;
 		if (!PlayOnce) currentTime %= PlayTime;
 	}
 

@@ -11,9 +11,9 @@ public class TextureAnimationManager<AnimationID> where AnimationID : Enum
 		animations.Add(id, animation);
 	}
 
-	public void Draw(Vector2 position, Vector2 direction, float frameTime, Color color)
+	public void Draw(Vector2 position, Vector2 direction, Color color)
 	{
 		TextureAnimation animation = animations[CurrentID];
-		animation.Draw(position, direction, frameTime, color);
+		animation.Draw(position, direction, color);
 	}
 }
