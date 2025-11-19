@@ -1,4 +1,5 @@
 # Game
+
 The game class is a starting point for your game code to be called by [Engine](engine.md), and nothing else:
 
 ```csharp
@@ -9,25 +10,25 @@ internal class MyGame : Game
 
 	}
 
-	public override void Update()
+	public override void OnUpdate()
 	{
 		
 	}
 
-	public override void Draw()
+	public override void OnDraw()
 	{
 		
 	}
 }
 ```
 
-As a matter of fact, it's so ridiculously simple, the source code can be pasted right here:
+As a matter of fact, it's so ridiculously simple, the entire source code can be pasted right here:
 
 ```csharp
 public abstract class Game
 {
-	public abstract void Update();
-	public abstract void Draw();
+	public abstract void OnUpdate();
+	public abstract void OnDraw();
 }
 ```
 

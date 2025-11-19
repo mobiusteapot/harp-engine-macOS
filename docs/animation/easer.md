@@ -19,3 +19,5 @@ void EaseShootingStar(Easer easer)
 ```
 
 This moves a star, rotates it, and interpolates its color. Then the easer kills itself when it is finished (or not, if you set `RemoveOnFinished` to `false`). You can also tell the easer to repeat itself with the `Rewind` property.
+
+There is also a `Transform2DEaser` class that inherits from easer and makes it super simple to apply easing to any objects with a `Transform2D` field.

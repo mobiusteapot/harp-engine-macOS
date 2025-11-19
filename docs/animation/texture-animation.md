@@ -1,5 +1,7 @@
 # Texture Animation
 
+> `using HarpEngine.Animation`
+
 Texture animation is pretty simple, and is done like so:
 
 ```csharp
