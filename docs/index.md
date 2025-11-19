@@ -187,7 +187,7 @@ public class Polygon : Entity
 	public float Radius;
 	public Color Color;
 
-	public Polygon(Scene scene, float radius, int sideCount, Color color) : base(scene)
+	public Polygon(float radius, int sideCount, Color color)
 	{
 		Radius = radius;
 		SideCount = sideCount;
