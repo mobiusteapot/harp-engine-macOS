@@ -30,7 +30,7 @@ public static class Primitives
 
 	// Circles
 
-	[DllImport("raylib.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "DrawCirlce")]
+	[DllImport("raylib.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "DrawCircle")]
 	public static extern void DrawCircle(int x, int y, float radius, Color color);
 
 	[DllImport("raylib.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "DrawCircleSector")]
