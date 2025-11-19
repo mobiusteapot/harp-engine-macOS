@@ -3,8 +3,8 @@
 public class TextureAnimationManager<AnimationID> where AnimationID : Enum
 {
 	private Dictionary<AnimationID, TextureAnimation> animations = new();
-	public AnimationID CurrentID;
-	public TextureAnimation CurrentAnimation => animations[CurrentID];
+	public AnimationID CurrentAnimationID;
+	public TextureAnimation CurrentAnimation => animations[CurrentAnimationID];
 
 	public void RegisterAnimation(TextureAnimation animation, AnimationID id)
 	{
@@ -13,7 +13,7 @@ public class TextureAnimationManager<AnimationID> where AnimationID : Enum
 
 	public void Draw(Vector2 position, Vector2 direction, Color color)
 	{
-		TextureAnimation animation = animations[CurrentID];
+		TextureAnimation animation = animations[CurrentAnimationID];
 		animation.Draw(position, direction, color);
 	}
 }
