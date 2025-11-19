@@ -69,14 +69,14 @@ public static class Engine
 	{
 		FrameTime = GetFrameTime();
 		if (FrameTime > 0.1f) FrameTime = 0.1f;
-		game.Update();
+		game.OnUpdate();
 		Window.Renderer.Update(gameRenderTexture);
 	}
 
 	private static void MasterDraw()
 	{
 		RenderTexture.BeginDrawing(gameRenderTexture);
-		game.Draw();
+		game.OnDraw();
 		RenderTexture.EndDrawing();
 
 		Drawing.Begin();
