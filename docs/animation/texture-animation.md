@@ -16,7 +16,7 @@ private override void OnDraw()
 }
 ```
 
-But probably, you want multiple animations all in one convenient system. Fear not.
+But probably, you want multiple animations all in one convenient system. Fear not:
 
 ```csharp
 public enum Animation
