@@ -84,12 +84,12 @@ public static class Engine
 		Drawing.End();
 	}
 
-	[DllImport("raylib.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "GetFrameTime")]
+	[DllImport("raylib", CallingConvention = CallingConvention.Cdecl, EntryPoint = "GetFrameTime")]
 	private static extern float GetFrameTime();
 
-	[DllImport("raylib.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SetTargetFPS")]
+	[DllImport("raylib", CallingConvention = CallingConvention.Cdecl, EntryPoint = "SetTargetFPS")]
 	public static extern void SetTargetFPS(int fps);
 
-	[DllImport("raylib.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "TakeScreenshot")]
+	[DllImport("raylib", CallingConvention = CallingConvention.Cdecl, EntryPoint = "TakeScreenshot")]
 	public static extern void TakeScreenshot(string fileName);
 }
